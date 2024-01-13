@@ -1,0 +1,59 @@
+[versions]
+
+kotlin = "1.9.21"
+compose = "1.5.11"
+agp = "8.2.0"
+androidx-appcompat = "1.6.1"
+androidx-activityCompose = "1.8.1"
+compose-uitooling = "1.5.4"
+voyager = "1.0.0"
+composeImageLoader = "1.7.1"
+napier = "2.7.0"
+buildConfig = "4.1.1"
+kotlinx-coroutines = "1.7.3"
+moko-mvvm = "0.16.1"
+multiplatformSettings = "1.1.1"
+kamel-image = "0.9.1"
+ktor = "2.3.7"
+kotlinx-serialization = "1.6.0"
+koin-version = "3.5.3"
+koin-compose = "1.1.2"
+
+[libraries]
+
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
+androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+compose-uitooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-uitooling" }
+voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
+composeImageLoader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "composeImageLoader" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
+multiplatformSettings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformSettings" }
+kamelImage = { module = "media.kamel:kamel-image", version.ref = "kamel-image" }
+kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization"}
+
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-client-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor"}
+ktor-client-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor"}
+ktor-logger = {module = "io.ktor:ktor-client-logging", version.ref = "ktor"}
+
+moko-mvvm-core = { module = "dev.icerock.moko:mvvm-compose", version.ref = "moko-mvvm"}
+moko-mvvm = { module = "dev.icerock.moko:mvvm-compose", version.ref = "moko-mvvm" }
+
+#koin-bom = { module = "io.insert-koin:koin:koin-bom", version.ref = "koin-version" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin-version" }
+koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin-version" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin-version" }
+koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin-version" }
+koin-logger-slf4j = { module = "io.insert-koin:koin-logger-slf4j", version.ref = "koin-version" }
+koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin-version" }
+voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyager" }
+
+[plugins]
+
+multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+compose = { id = "org.jetbrains.compose", version.ref = "compose" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+buildConfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildConfig" }
