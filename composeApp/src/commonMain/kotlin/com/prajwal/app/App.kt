@@ -36,8 +36,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import com.prajwal.app.BirdsViewModel.Companion.BASE_URL
-import dev.icerock.moko.mvvm.compose.getViewModel
-import dev.icerock.moko.mvvm.compose.viewModelFactory
+import di.ViewModelDependencies.getBirdsViewModel
 import io.kamel.image.KamelImage
 import io.kamel.image.asyncPainterResource
 import model.BirdImage
@@ -45,8 +44,7 @@ import model.BirdImage
 @Composable
 internal fun App() {
     BirdTheme {
-        val viewModel = getViewModel(Unit, viewModelFactory { BirdsViewModel() })
-        BirdsPage(viewModel)
+        BirdsPage()
     }
 }
 
@@ -64,7 +62,7 @@ fun BirdTheme(content: @Composable () -> Unit) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun BirdsPage(viewModel: BirdsViewModel) {
+private fun BirdsPage(viewModel: BirdsViewModel = getBirdsViewModel()) {
     val uiState by viewModel.uiState.collectAsState()
 
     Column(

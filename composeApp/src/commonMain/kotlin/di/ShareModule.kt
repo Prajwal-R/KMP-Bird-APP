@@ -2,12 +2,12 @@ package di
 
 import com.prajwal.app.BirdsViewModel
 import domain.FetchBirdsDataUseCase
+import org.koin.core.component.KoinComponent
 import org.koin.core.context.startKoin
-import org.koin.dsl.KoinAppDeclaration
 import org.koin.dsl.module
 import service.FetchBirdsDataRepository
 
-fun initKoin(appDeclaration: KoinAppDeclaration = {}) =
+fun initKoin() =
     startKoin {
         modules(
             sharedViewModelModule +
@@ -19,7 +19,7 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) =
 val sharedViewModelModule =
     module {
         factory {
-            BirdsViewModel()
+            BirdsViewModel(get())
         }
     }
 val sharedRepositoryModule =
@@ -34,4 +34,6 @@ val sharedUsecaseModule =
         }
     }
 
-fun initKoin() = initKoin {}
+object ViewModelDependencies : KoinComponent {
+    fun getBirdsViewModel() = getKoin().get<BirdsViewModel>()
+}

@@ -2,11 +2,6 @@ package com.prajwal.app
 
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import domain.FetchBirdsDataUseCase
-import io.ktor.client.HttpClient
-import io.ktor.client.call.body
-import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.request.get
-import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -14,7 +9,7 @@ import kotlinx.coroutines.launch
 import model.BirdImage
 
 class BirdsViewModel(
-//    private val fetchBirdsDataUseCase: FetchBirdsDataUseCase,
+    private val fetchBirdsDataUseCase: FetchBirdsDataUseCase,
 ) : ViewModel() {
     private val _uiState = MutableStateFlow<BirdsUiState>(BirdsUiState(isLoading = true))
     val uiState = _uiState.asStateFlow()
@@ -54,19 +49,6 @@ class BirdsViewModel(
     companion object {
         const val BASE_URL = "https://sebi.io/demo-image-api/"
     }
-
-    //todo this is temp solution
-    private val httpClient =
-        HttpClient {
-            install(ContentNegotiation) {
-                json()
-            }
-        }
-
-    suspend fun fetchBirdsDataUseCase() =
-        httpClient
-            .get(BASE_URL + "pictures.json")
-            .body<List<BirdImage>>()
 }
 
 data class BirdsUiState(
